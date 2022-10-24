@@ -28,89 +28,96 @@
 </head>
 
 <body>
-    <div class="h1 text-center mt-4">Power System Harmonics</div>
-    
-    
-    <div class="container text-center my-3">
-        
-        <div class="p my-3">
-        In this platform, different waveforms can be visualized depending on the Fourier series. Number of how many harmonic orders will be plotted, waveform frequency, plotting time, dc value of waveform and noise are the variables of plotting. Additionally, waveforms are directly selectable from corresponding buttons. At last, Fourier series coefficients are adjustable in case of need for different configuration.
+    <div class="h1 text-center mt-4">
+        Power System Harmonics
+    </div>
+
+
+    <div class="container text-center my-3 align-items-center">
+        <div class="row">
+
+            <div class="col p my-3 text-justify">
+                In this platform, different waveforms can be visualized depending on the Fourier series. Number of how
+                many harmonic orders will be plotted, waveform frequency, plotting time, dc value of waveform and noise
+                are the variables of plotting. Additionally, waveforms are directly selectable from corresponding
+                buttons. At last, Fourier series coefficients are adjustable in case of need for different
+                configuration.
+            </div>
         </div>
-    
-        <div class="row d-flex align-items-center">
+        <div class="row">
             <div class="col">
                 <div id="HarmonicPlot"></div>
             </div>
+        </div>
+
+        <div class="row font-weight-bold my-2 py-2 bg-light"> 
+            <div class="col">RMS:</div>
+            <div class="col" id="RMSValueofPlot">100</div>
+            <div class="col">THD (%):</div>
+            <div class="col" id="THDValueofPlot">0</div>
+        </div>
+
+
+        <div class="row align-items-center">
             <div class="col">
-                <div class="row ">
-                    <div class="col">
-                        nth Harmonic Orders:
-                    </div>
-                    <div class="col">
-                        <input type="range" min="1" max="40" value="10" class="slider" id="HarmonicOrder"
-                            onChange="sliderChangeMain(this)">
-                    </div>
-                    <div class="col">
-                        <p id="HarmonicOrderValue">10</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        Frequency (Hz):
-                    </div>
-                    <div class="col">
-                        <input type="range" min="10" max="500" value="50" class="slider" id="Frequency"
-                            onChange="sliderChangeMain(this)">
-                    </div>
-                    <div class="col">
-                        <p id="FrequencyValue">50</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        Time Interval (s):
-                    </div>
-                    <div class="col">
-                        <input type="range" step="0.001" min="0.005" max="0.2" value="0.02" class="slider"
-                            id="TimeInterval" onChange="sliderChangeMain(this)">
-                    </div>
-                    <div class="col">
-                        <p id="TimeIntervalValue">0.02</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        DC Component:
-                    </div>
-                    <div class="col">
-                        <input type="range" step="1" min="-100" max="100" value="0" class="slider" id="DCComponent"
-                            onChange="sliderChangeMain(this)">
-                    </div>
-                    <div class="col">
-                        <p id="DCComponentValue">0</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        Noise (%):
-                    </div>
-                    <div class="col">
-                        <input type="range" step="0.5" min="-10" max="10" value="0" class="slider" id="Noise"
-                            onChange="sliderChangeMain(this)">
-                    </div>
-                    <div class="col">
-                        <p id="NoiseValue">0</p>
-                    </div>
-                </div>
-                <div class="row font-weight-bold my-2 py-2 bg-light"> 
-                    <div class="col">RMS:</div>
-                    <div class="col" id="RMSValueofPlot">100</div>
-                    <div class="col">THD (%):</div>
-                    <div class="col" id="THDValueofPlot">0</div>
-
-                </div>
-
-
+                nth Harmonic Orders:
+            </div>
+            <div class="col">
+                <input type="range" min="1" max="40" value="10" class="slider" id="HarmonicOrder"
+                    onChange="sliderChangeMain(this)">
+            </div>
+            <div class="col">
+                <p id="HarmonicOrderValue">10</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                Frequency (Hz):
+            </div>
+            <div class="col">
+                <input type="range" min="10" max="500" value="50" class="slider" id="Frequency"
+                    onChange="sliderChangeMain(this)">
+            </div>
+            <div class="col">
+                <p id="FrequencyValue">50</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                Time Interval (s):
+            </div>
+            <div class="col">
+                <input type="range" step="0.001" min="0.005" max="0.2" value="0.02" class="slider" id="TimeInterval"
+                    onChange="sliderChangeMain(this)">
+            </div>
+            <div class="col">
+                <p id="TimeIntervalValue">0.02</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                DC Component:
+            </div>
+            <div class="col">
+                <input type="range" step="1" min="-100" max="100" value="0" class="slider" id="DCComponent"
+                    onChange="sliderChangeMain(this)">
+            </div>
+            <div class="col">
+                <p id="DCComponentValue">0</p>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                Noise (%):
+            </div>
+            <div class="col">
+                <input type="range" step="0.5" min="-10" max="10" value="0" class="slider" id="Noise"
+                    onChange="sliderChangeMain(this)">
+            </div>
+            <div class="col">
+                <p id="NoiseValue">0</p>
+            </div>
+        </div>
                 <div class="row my-2">
                     <div class="col">
                         <button type="button" class="btn btn-primary" value="Reset"
@@ -143,20 +150,11 @@
                     </div>
 
                 </div>
-
-
-
-
-            </div>
-        </div>
-
     </div>
 
-
-
     <div class="h2 text-center">Coefficients</div>
-    <div class="container">
-        <div class="row my-2">
+    <div class="container align-items-center text-center">
+        <div class="row my-2 font-weight-bold">
             <div class="col">No</div>
             <div class="col"></div>
             <div class="col">An</div>
@@ -178,6 +176,8 @@
         </div>
     </div>
     <!-- Footer End -->
+
+
 
 </body>
 <script src="script.js" type="text/javascript"></script>
