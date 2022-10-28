@@ -13,9 +13,10 @@ https://onurhakki.github.io/harmonics/
 ### Fourier Series
 $f(x) = A_0 + \sum_{n=1} A_n cos(n \ast 2\pi f \ast x)+ \sum_{n=1} B_n sin(n \ast 2\pi f \ast x)$
 
-https://github.com/onurhakki/harmonics-python
 
-Coeffients:
+This page is mostly created for visualization of harmonics. If you like to evaluate Forier Series of a given function, you might need to check following site: [https://github.com/onurhakki/harmonics-python]
+
+### Coeffients
 
 $A_0 = \frac{1}{T} \int_{0}^{T}f(x)dx$
 
