@@ -14,7 +14,7 @@ https://onurhakki.github.io/harmonics/
 $f(x) = A_0 + \sum_{n=1} A_n cos(n \ast 2\pi f \ast x)+ \sum_{n=1} B_n sin(n \ast 2\pi f \ast x)$
 
 
-This page is mostly created for visualization of harmonics. If you like to evaluate Forier Series of a given function, you might need to check following site: [https://github.com/onurhakki/harmonics-python]
+This page is mostly created for visualization of harmonics. If you like to evaluate Fourier series of a given function, you might need to check following site: [https://github.com/onurhakki/harmonics-python]
 
 ### Coeffients
 
