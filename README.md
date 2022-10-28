@@ -36,8 +36,11 @@ Furthermore, there are some built-in values for some of the most used waveforms.
 ## Get Results
 ### RMS (Root-Mean-Square)
 $\sqrt{\frac{1}{T}\int_{0}^{T}f^2(x)dx }$
+
 In mathematics and its applications, the root mean square of a set of numbers (abbreviated as RMS) is defined as the square root of the mean square (the arithmetic mean of the squares) of the set [2].
+
 *RMS is equal to the value of the constant direct current that would produce the same power dissipation in a resistive load.*
+
 ### THD (Total Harmonics Distortion)
 $\frac{\sqrt{\sum_{n=2} V_n^{2}}}{V_1}$
 
@@ -48,6 +51,9 @@ You are able to select variables given in the followings.
 #### Time Interval (s)
 #### DC Component
 #### Noise
+
+
+## References
 
 [1] Fuchs, Ewald F., and Mohammad AS Masoum. *Power quality in power systems and electrical machines.* Academic press, 2011.
 
