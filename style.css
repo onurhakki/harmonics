@@ -1,13 +1,53 @@
 
+@keyframes animation {
+  0%   {width: 50px;height: 50px;}
+  25%   {width: 50.5px;height: 50.5px;}
+  50%   {width: 51px;height: 51px;}
+  75%   {width: 50.5px;height: 50.5px;}
 
+}
+
+
+
+.fixed-action-btn{
+  border-color: rgb(39, 108, 176);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position:fixed;
+  z-index: 5;
+  border-radius: 100%;
+  bottom: 3%;
+  right: 4%;
+    animation: animation 0.5s linear infinite;
+  
+
+}
+
+.fixed-action-btn:hover{
+  transition: 1s;
+}
+
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 10px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
 
 .btn-social {
-  width: 45px;
-  height: 45px;
-  padding-left: 0;
-  padding-right: 0;
+  width: 43px;
+  height: 40px;
   text-align: center;
-  border-radius: 45px;
+  border-radius: 100%;
 }
 
 .slider {
