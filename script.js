@@ -1,3 +1,79 @@
+
+var delay_time = 400
+
+
+
+window.addEventListener("resize", function(){setTimeout(function (){update_create_and_plot()}, delay_time);})
+window.addEventListener('click', function(e){ 
+    if (button1_clicked == true){
+        if (document.getElementById('main').contains(e.target)){
+            button1_function()
+        }
+    }  
+    if (button2_clicked == true){
+        if (document.getElementById('main').contains(e.target)){
+            button2_function()
+        }
+    }  
+
+});
+
+var button1_clicked = false;
+function button1_function(){
+    if (button1_clicked == true){
+        closeSideBar("SideBar1")
+        button1_clicked = false;
+    }
+    else{
+        if (button2_clicked == true){        
+            closeSideBar("SideBar2")
+            button2_clicked = false;
+        }
+        openSideBar("SideBar1"); button1_clicked = true;}}
+
+var button2_clicked = false;
+function button2_function(){
+    if (button2_clicked == true){
+        closeSideBar("SideBar2")
+        button2_clicked = false;
+    }
+    else{
+        if (button1_clicked == true){        
+            closeSideBar("SideBar1")
+            button1_clicked = false;
+        }
+        openSideBar("SideBar2"); button2_clicked = true;}}
+
+
+function openSideBar(name) {
+    if (window.innerWidth > 750){
+        document.getElementById(name).style.width = "50%";
+        document.getElementById("main").style.marginLeft = "50%";
+
+        setTimeout(function (){update_create_and_plot()}, delay_time);
+    }
+    else {
+        document.getElementById(name).style.width = "100%";
+
+    }
+    document.getElementById("SettingButton").style.display = "none";
+
+}
+
+function closeSideBar(name) {
+    document.getElementById(name).style.width = "0";
+    document.getElementById("SettingButton").style.display = "block";
+
+    if (window.innerWidth > 750){
+    document.getElementById("main").style.marginLeft = "0%";
+
+    setTimeout(function (){update_create_and_plot()}, delay_time);
+    }}
+
+
+
+
+
 plotting = document.getElementById('HarmonicPlot');
 var frequency = 50;
 var T = 1 / frequency;
@@ -11,7 +87,8 @@ var margin= {
             r: 50,
             b: 50,
             t: 10,
-            pad: 4
+            pad: 4,
+            
           }
 
 var x_axis = Array.apply(null, Array(n_points)).map(function (x, i) {
@@ -35,7 +112,7 @@ const stored_data = {"Reset": {
     "b_n" : [100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}, 
 
     "Square" :{ a_n : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] , b_n : [89.1, 0.0, 29.7, 0.0, 17.8, 0.0, 12.7, 0.0, 9.9, 0.0, 8.1, 0.0, 6.9, 0.0, 5.9, 0.0, 5.2, 0.0, 4.7, 0.0, 4.2, 0.0, 3.9, 0.0, 3.6, 0.0, 3.3, 0.0, 3.1, 0.0, 2.9, 0.0, 2.7, 0.0, 2.5, 0.0, 2.4, 0.0, 2.3, 0.0] },
-    "Quasi-Square (120°)": { a_n : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] , b_n : [77.2, 0.0, 0.0, 0.0, -15.4, 0.0, -11.0, 0.0, 0.0, 0.0, 7.0, 0.0, 5.9, 0.0, 0.0, 0.0, -4.5, 0.0, -4.1, 0.0, 0.0, 0.0, 3.4, 0.0, 3.1, 0.0, 0.0, 0.0, -2.7, 0.0, -2.5, 0.0, 0.0, 0.0, 2.2, 0.0, 2.1, 0.0, 0.0, 0.0] },
+    "Quasi-Square": { a_n : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] , b_n : [77.2, 0.0, 0.0, 0.0, -15.4, 0.0, -11.0, 0.0, 0.0, 0.0, 7.0, 0.0, 5.9, 0.0, 0.0, 0.0, -4.5, 0.0, -4.1, 0.0, 0.0, 0.0, 3.4, 0.0, 3.1, 0.0, 0.0, 0.0, -2.7, 0.0, -2.5, 0.0, 0.0, 0.0, 2.2, 0.0, 2.1, 0.0, 0.0, 0.0] },
     "Half Sine (R)": { a_n : [-22.3, 0.0, 22.3, 0.0, -7.4, 0.0, 7.4, 0.0, -4.5, 0.0, 4.5, 0.0, -3.2, 0.0, 3.2, 0.0, -2.5, 0.0, 2.5, 0.0, -2.0, 0.0, 2.0, 0.0, -1.7, 0.0, 1.7, 0.0, -1.5, 0.0, 1.5, 0.0, -1.3, 0.0, 1.3, 0.0, -1.2, 0.0, 1.2, 0.0] , b_n : [35.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] },
 "Triangular":{ a_n : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] , b_n : [56.7, 0.0, -6.3, 0.0, 2.3, 0.0, -1.2, 0.0, 0.7, 0.0, -0.5, 0.0, 0.3, 0.0, -0.3, 0.0, 0.2, 0.0, -0.2, 0.0, 0.1, 0.0, -0.1, 0.0, 0.1, 0.0, -0.1, 0.0, 0.1, 0.0, -0.1, 0.0, 0.1, 0.0, -0.0, 0.0, 0.0, 0.0, -0.0, 0.0] }
 
@@ -141,6 +218,17 @@ sliderChangeMain = function (e) {
     };
 }
 
+buttonClick_increase = function(e){
+    let select_slider = document.getElementById(e.value)
+    select_slider.value = Number(select_slider.value) + 1
+    sliderChange(select_slider)
+}
+
+buttonClick_decrease = function(e){
+    let select_slider = document.getElementById(e.value)
+    select_slider.value = Number(select_slider.value) - 1
+    sliderChange(select_slider)
+}
 
 sliderChange = function (e) {
     let name = e.id.concat("Value");
@@ -226,34 +314,82 @@ sliderChange = function (e) {
 update_sliders = function () {
     for (let n = 0; n < slider.value; n++) {
         var row = document.createElement("div");
-        row.className = "row";
+        row.className = "row justify-content-between";
 
-        for (let c = 0; c < 5; c++) {
-            var col = document.createElement("div");
-            col.className = "col"
+        for (let c = 0; c < 9; c++) {
             if (c == 0) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"
                 col.innerHTML = n + 1
             }
             if (c == 1) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"                
+                var decrease_button = document.createElement("button");
+                decrease_button.className = "btn btn-sm";
+                decrease_button.setAttribute('value', store_html["a_n"]["ids"][n]);
+                decrease_button.setAttribute("onclick", "buttonClick_decrease(this)");
+                decrease_button.innerHTML = "<"
+                col.appendChild(decrease_button)
+
+
+            }
+            if (c == 2) {
+                var col = document.createElement("div");
+                col.className = "col p-0 m-0"
                 var s = document.createElement("input");
                 s.className = "slider";
                 s.setAttribute('type', 'range');
                 s.setAttribute('min', '-100');
                 s.setAttribute('max', '100');
+
                 s.setAttribute('id', store_html["a_n"]["ids"][n]);
                 s.setAttribute('value', store_html["a_n"]["values"][n]);
                 s.setAttribute("onChange", "sliderChange(this)");
                 col.appendChild(s)
+
             }
-            if (c == 2) {
+
+            if (c == 3) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"
+                var increase_button = document.createElement("button");
+                increase_button.className = "btn btn-sm";
+                increase_button.setAttribute('value', store_html["a_n"]["ids"][n]);
+                increase_button.setAttribute("onclick", "buttonClick_increase(this)");
+                increase_button.innerHTML = ">"
+
+                col.appendChild(increase_button)
+
+            }
+
+            if (c == 4) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"
                 let name = store_html["a_n"]["texts"][n];
                 var p = document.createElement("p");
                 p.setAttribute("id", name);
                 p.innerHTML = store_html["a_n"]["values"][n]
                 col.appendChild(p)
+
+            }
+            if (c == 5) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"
+                var decrease_button = document.createElement("button");
+                decrease_button.className = "btn btn-sm";
+                decrease_button.setAttribute('value', store_html["b_n"]["ids"][n]);
+                decrease_button.setAttribute("onclick", "buttonClick_decrease(this)");
+                decrease_button.innerHTML = "<"
+
+                col.appendChild(decrease_button)
+
+
             }
 
-            if (c == 3) {
+            if (c == 6) {
+                var col = document.createElement("div");
+                col.className = "col p-0 m-0"
                 var s = document.createElement("input");
                 s.className = "slider";
                 s.setAttribute('type', 'range');
@@ -263,15 +399,32 @@ update_sliders = function () {
                 s.setAttribute('value', store_html["b_n"]["values"][n]);
                 s.setAttribute("onChange", "sliderChange(this)");
                 col.appendChild(s)
-            }
 
-            if (c == 4) {
+
+            }          
+            if (c == 7) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"
+                var increase_button = document.createElement("button");
+                increase_button.className = "btn btn-sm";
+                increase_button.setAttribute('value', store_html["b_n"]["ids"][n]);
+                increase_button.setAttribute("onclick", "buttonClick_increase(this)");
+                increase_button.innerHTML = ">"
+
+                col.appendChild(increase_button)
+
+
+            }  
+            if (c == 8) {
+                var col = document.createElement("div");
+                col.className = "col-1 m-0 p-0 allign-items-center"
                 let name = store_html["b_n"]["texts"][n];
                 var p = document.createElement("p");
                 p.setAttribute("id", name);
                 p.innerHTML = store_html["b_n"]["values"][n]
                 col.appendChild(p)
-            }
+
+            }            
 
             row.appendChild(col)
         }
