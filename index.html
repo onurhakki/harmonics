@@ -28,156 +28,217 @@
 </head>
 
 <body>
-    <div class="h1 text-center mt-4">
-        Power System Harmonics
+    <div>
+        <button id = "SettingButton" class="btn btn-primary fixed-action-btn" onclick="button2_function()">☰</button>
     </div>
 
-
-    <div class="container text-center my-3 align-items-center">
-        <div class="row">
-
-            <div class="col p my-3 text-justify">
-                In this platform, different waveforms can be visualized depending on the Fourier series. Number of how
-                many harmonic orders will be plotted, waveform frequency, plotting time, dc value of waveform and noise
-                are the variables of plotting. Additionally, waveforms are directly selectable from corresponding
-                buttons. At last, Fourier series coefficients are adjustable in case of need for different
-                configuration.
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div id="HarmonicPlot"></div>
-            </div>
-        </div>
-
-        <div class="row font-weight-bold my-2 py-2 bg-light"> 
-            <div class="col">RMS:</div>
-            <div class="col" id="RMSValueofPlot">100</div>
-            <div class="col">THD (%):</div>
-            <div class="col" id="THDValueofPlot">0</div>
-        </div>
-
-
-        <div class="row align-items-center">
-            <div class="col">
-                nth Harmonic Orders:
-            </div>
-            <div class="col">
-                <input type="range" min="1" max="40" value="10" class="slider" id="HarmonicOrder"
-                    onChange="sliderChangeMain(this)">
-            </div>
-            <div class="col">
-                <p id="HarmonicOrderValue">10</p>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                Frequency (Hz):
-            </div>
-            <div class="col">
-                <input type="range" min="10" max="500" value="50" class="slider" id="Frequency"
-                    onChange="sliderChangeMain(this)">
-            </div>
-            <div class="col">
-                <p id="FrequencyValue">50</p>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                Time Interval (s):
-            </div>
-            <div class="col">
-                <input type="range" step="0.001" min="0.005" max="0.2" value="0.02" class="slider" id="TimeInterval"
-                    onChange="sliderChangeMain(this)">
-            </div>
-            <div class="col">
-                <p id="TimeIntervalValue">0.02</p>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                DC Component:
-            </div>
-            <div class="col">
-                <input type="range" step="1" min="-100" max="100" value="0" class="slider" id="DCComponent"
-                    onChange="sliderChangeMain(this)">
-            </div>
-            <div class="col">
-                <p id="DCComponentValue">0</p>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col">
-                Noise (%):
-            </div>
-            <div class="col">
-                <input type="range" step="0.5" min="-10" max="10" value="0" class="slider" id="Noise"
-                    onChange="sliderChangeMain(this)">
-            </div>
-            <div class="col">
-                <p id="NoiseValue">0</p>
-            </div>
-        </div>
-                <div class="row my-2">
+    <div id="SideBar1" class="sidebar border-right">
+        <div>
+            <div class="container">
+                <div class="row align-self-stretch">
+                    <div class="col text-right my-2">
+                        <button type="button" class="btn btn-white" onclick="button1_function()">X</button>
+                    </div>
+                </div>
+                <div class="row align-self-stretch border-bottom">
                     <div class="col">
-                        <button type="button" class="btn btn-primary" value="Reset"
-                            onclick="Selection_setting(this.value)">Reset</button>
+                        <div class="h2 text-left">Coefficients</div>
+                    </div>
+                    <div class="col text-right">
+                        <button type="button" class="btn btn-primary " onclick="button2_function()">Settings</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container align-items-center text-center">
+                <div class="row my-3 font-weight-bold">
+                    <div class="col">No</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">An</div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col">Bn</div>
+                </div>
+
+                <div class="container" id="Sliders"> </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="SideBar2" class="sidebar border-right">
+        <div>
+            <div class="container">
+                <div class="row align-self-stretch">
+                    <div class="col text-right my-2">
+                        <button type="button" class="btn btn-white" onclick="button2_function()">X</button>
+                    </div>
+                </div>
+                <div class="row align-self-stretch border-bottom">
+                    <div class="col">
+                        <div class="h2 text-left">Settings</div>
+                    </div>
+                    <div class="col text-right">
+                        <button type="button" class="btn btn-primary h4" onclick="button1_function()">Coefficients</button>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        nth Harmonic Orders:
                     </div>
                     <div class="col">
+                        <input type="range" min="1" max="40" value="10" class="slider" id="HarmonicOrder"
+                            onChange="sliderChangeMain(this)">
+                    </div>
+                    <div class="col-2">
+                        <p id="HarmonicOrderValue">10</p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        Frequency (Hz):
+                    </div>
+                    <div class="col">
+                        <input type="range" min="10" max="500" value="50" class="slider" id="Frequency"
+                            onChange="sliderChangeMain(this)">
+                    </div>
+                    <div class="col-2">
+                        <p id="FrequencyValue">50</p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        Time Interval (s):
+                    </div>
+                    <div class="col">
+                        <input type="range" step="0.001" min="0.005" max="0.2" value="0.02" class="slider"
+                            id="TimeInterval" onChange="sliderChangeMain(this)">
+                    </div>
+                    <div class="col-2">
+                        <p id="TimeIntervalValue">0.02</p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
+                        DC Component:
+                    </div>
+                    <div class="col">
+                        <input type="range" step="1" min="-100" max="100" value="0" class="slider" id="DCComponent"
+                            onChange="sliderChangeMain(this)">
+                    </div>
+                    <div class="col-2">
+                        <p id="DCComponentValue">0</p>
+                    </div>
+                </div>
+                <div class="row align-items-center mb-2">
+                    <div class="col">
+                        Noise (%):
+                    </div>
+                    <div class="col">
+                        <input type="range" step="0.5" min="-10" max="10" value="0" class="slider" id="Noise"
+                            onChange="sliderChangeMain(this)">
+                    </div>
+                    <div class="col-2">
+                        <p id="NoiseValue">0</p>
+                    </div>
+                </div>
+                <div class="row my-3 text-center">
+                    
+
+                    <div class="col text-left">
                         <button type="button" class="btn btn-primary" value="Square"
                             onclick="Selection_setting(this.value)">Square</button>
                     </div>
-                    
-                    <div class="col">
+                                                            <div class="col text-right">
+                        <button type="button" class="btn btn-primary" value="Quasi-Square"
+                            onclick="Selection_setting(this.value)">Quasi-Square</button>
+                    </div>
+
+
+                </div>
+                <div class="row my-3 text-center">
+                                        <div class="col text-left">
                         <button type="button" class="btn btn-primary" value="Triangular"
                             onclick="Selection_setting(this.value)">Triangular</button>
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary" value="Quasi-Square (120°)"
-                            onclick="Selection_setting(this.value)">Quasi-Square (120°)</button>
-                    </div>
-                    <div class="col">
+
+                    <div class="col text-right">
                         <button type="button" class="btn btn-primary" value="Half Sine (R)"
                             onclick="Selection_setting(this.value)">Half Sine (R)</button>
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button type="button" class="btn btn-primary" onclick="location.reload()">Reload Page</button>
+                <div class="row text-center my-3">
+                    <div class="col text-left">
+                        <button type="button" class="btn btn-primary" value="Reset"
+                            onclick="Selection_setting(this.value)">Reset</button>
+                    </div>
+                    <div class="col text-right">
+                        <button type="button" class="btn btn-primary " onclick="location.reload()">Reload Page</button>
                     </div>
 
                 </div>
-    </div>
 
-    <div class="h2 text-center">Coefficients</div>
-    <div class="container align-items-center text-center">
-        <div class="row my-2 font-weight-bold">
-            <div class="col">No</div>
-            <div class="col"></div>
-            <div class="col">An</div>
-            <div class="col"></div>
-            <div class="col">Bn</div>
-        </div>
-
-        <div class="container" id="Sliders"> </div>
-    </div>
-    <!-- Footer Start -->
-    <div class="container-fluid text-white mt-5 py-1 px-sm-1 px-md-5 my-5 bg-primary">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/onurhakki/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="https://www.youtube.com/channel/UC0PnvRi2ezTZoxMNQb99csw" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube-square"></i></a>
-                <a class="btn btn-light btn-social" href="https://github.com/onurhakki" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
             </div>
-            <p class="m-0"> Onur Hakkı Eyüboğlu | All Rights Reserved | Designed by <a class="text-white font-weight-bold" href="https://onurhakki.github.io/cv/"  target="_blank" rel="noopener noreferrer">Onur Hakkı Eyüboğlu</a></p>
         </div>
     </div>
-    <!-- Footer End -->
 
 
+
+
+    <div id="main">
+        <div class="h1 text-center my-4">
+            Power System Harmonics
+        </div>
+
+
+        <div class="container text-center my-4 align-items-center">
+            <div class="row">
+
+                <div class="col p my-3 text-justify">
+                    In this platform, different waveforms can be visualized depending on the Fourier series. Number of
+                    how
+                    many harmonic orders will be plotted, waveform frequency, plotting time, dc value of waveform and
+                    noise
+                    are the variables of plotting. Additionally, waveforms are directly selectable from corresponding
+                    buttons. At last, Fourier series coefficients are adjustable in case of need for different
+                    configuration.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="HarmonicPlot"></div>
+                </div>
+            </div>
+
+            <div class="row font-weight-bold my-3 py-3 bg-light">
+                <div class="col">RMS:</div>
+                <div class="col" id="RMSValueofPlot">100</div>
+                <div class="col">THD (%):</div>
+                <div class="col" id="THDValueofPlot">0</div>
+            </div>
+        </div>
+        <!-- Footer Start -->
+        <div class="container-fluid text-white mt-5 py-1 px-sm-1 px-md-5 my-5" style="background-color: rgb(44, 137, 231);">
+            <div class="container text-center py-5">
+                <div class="justify-content-center mb-4">                    
+                    <a class="btn btn-light btn-social mx-2" href="https://www.linkedin.com/in/onurhakki/"
+                        target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    <a class="btn btn-light btn-social mx-2" href="https://www.youtube.com/channel/UC0PnvRi2ezTZoxMNQb99csw" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-youtube-square fa-lg"></i></a>
+                    <a class="btn btn-light btn-social mx-2" href="https://github.com/onurhakki" target="_blank"
+                        rel="noopener noreferrer"><i class="fab fa-github fa-lg"></i></a>
+                </div>
+                <p class="m-0"> Onur Hakkı Eyüboğlu | All Rights Reserved | Designed by <a
+                        class="text-white font-weight-bold" href="https://onurhakki.github.io/cv/" target="_blank"
+                        rel="noopener noreferrer">Onur Hakkı Eyüboğlu</a></p>
+            </div>
+        </div>
+        <!-- Footer End -->
+    </div>
 
 </body>
 <script src="script.js" type="text/javascript"></script>
