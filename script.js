@@ -489,10 +489,12 @@ function update_create_and_plot() {
 
     var layout = {
         xaxis: {
+            fixedrange: true,
             range: [0, time_interval],
             title: "Time"
         },
         yaxis: {
+            fixedrange: true,
             title: "Magnitude"
         },
 
@@ -578,10 +580,14 @@ function upload_data_and_plot(e) {
         // Define Layout
     var layout = {
         xaxis: {
+                        fixedrange: true,
+
             range: [0, time_interval],
             title: "Time"
         },
         yaxis: {
+                        fixedrange: true,
+
             title: "Magnitude"
         },
           margin: margin
@@ -636,10 +642,14 @@ function create_and_plot() {
     // Define Layout
     var layout = {
         xaxis: {
+                        fixedrange: true,
+
             range: [0, time_interval],
             title: "Time"
         },
         yaxis: {
+                        fixedrange: true,
+
             title: "Magnitude"
         },
           margin: margin
