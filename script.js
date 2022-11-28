@@ -15,8 +15,6 @@ window.addEventListener('click', function(e){
             button2_function()
         }
     }  
-        // Scroll down to element
-    document.getElementById("HarmonicPlot").scrollIntoView();
 
 
 });
@@ -60,6 +58,9 @@ function openSideBar(name) {
 
     }
     document.getElementById("SettingButton").style.display = "none";
+            // Scroll down to element
+    document.getElementById("HarmonicPlot").scrollIntoView();
+
 
 }
 
@@ -71,6 +72,9 @@ function closeSideBar(name) {
     document.getElementById("main").style.marginLeft = "0%";
 
     setTimeout(function (){update_create_and_plot()}, delay_time);
+                // Scroll down to element
+    document.getElementById("HarmonicPlot").scrollIntoView();
+
     }}
 
 
