@@ -15,6 +15,9 @@ window.addEventListener('click', function(e){
             button2_function()
         }
     }  
+        // Scroll down to element
+    document.getElementById("HarmonicPlot").scrollIntoView();
+
 
 });
 
