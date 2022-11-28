@@ -2,9 +2,9 @@
 
 Harmonics are sinusoidal voltages or currents with frequencies that are integer multiples of the power system (fundamental) frequency (usually, f = 50 or 60 Hz) [1]. 
 
-Periodic nonsinusoidal waveforms can be subjected to Fourier series and can be decomposed into the sum of fundamental component and harmonics.
+Periodic nonsinusoidal waveforms can be subjected to Fourier series and can be decomposed into the sum of fundamental components and harmonics.
 
-In this platform, different waveforms can be visualized depending on the Fourier series. Number of how many harmonic orders will be plotted, waveform frequency, plotting time, dc value of waveform and noise are the variables of plotting. Additionally, waveforms are directly selectable from corresponding buttons. At last, Fourier series coefficients are adjustable in case of need for different configuration.
+In this platform, different waveforms can be visualized depending on the Fourier series. Number of how many harmonic orders will be plotted, waveform frequency, plotting time, dc value of waveform and noise are the variables of plotting. Additionally, waveforms are directly selectable from corresponding buttons. Finally, Fourier series coefficients are adjustable in case of need for different configurations.
 
 Go to site:
 https://onurhakki.github.io/harmonics/
@@ -16,7 +16,7 @@ $f(x) = A_0 + \sum_{n=1} A_n cos(n \ast 2\pi f \ast x)+ \sum_{n=1} B_n sin(n \as
 
 This page is mostly created for visualization of harmonics. If you like to evaluate Fourier series of a given function, you might need to check following site: [https://github.com/onurhakki/harmonics-python]
 
-### Coeffients
+### Coefficients
 
 $A_0 = \frac{1}{T} \int_{0}^{T}f(x)dx$
 
@@ -26,7 +26,7 @@ $B_n = \frac{2}{T} \int_{0}^{T}f(x)\ast sin (n \ast 2\pi f \ast x)dx$
 
 You can adjust A0, An and Bn components.
 
-Furthermore, there are some built-in values for some of the most used waveforms. Screenshots are also shown in the followings.
+Furthermore, there are some built-in values for some of the most used waveforms. Screenshots are also shown in the following.
 
 ### Square Wave
 ![image](https://user-images.githubusercontent.com/53830179/198528094-95d16c2f-4892-4f87-976c-77bf5b9de55d.png)
@@ -46,7 +46,7 @@ In mathematics and its applications, the root mean square of a set of numbers (a
 $\frac{\sqrt{\sum_{n=2} V_n^{2}}}{V_1}$
 
 ## Additionally
-You are able to select variables given in the followings.
+You are able to select variables given in the following.
 #### N Harmonics
 #### Frequency (Hz)
 #### Time Interval (s)
